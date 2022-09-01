@@ -32,11 +32,11 @@ cd GAN_for_PorousMedia
 ```
 python generator.py --seed 42 --imageSize 64 --ngf 32 --ndf 16 --nz 512 --netG [path to generator checkpoint].pth --experiment sand --imsize 9 --cuda --ngpu 1
 ```
-Please note that the sand here refers to the dataset name, which lies in the GAN/data folder in our package.
+#### Please note that the sand here refers to the dataset name, which lies in the GAN/data folder in our package.
 
 2) Run ```create_training_images.py``` to segment the image size into 64*64*64 voxel
 ```
-python create_training_images.py --image berea.tif --name berea --edgelength 64 --stride 32 --target_dir berea_ti
+python create_training_images.py --image data/sand/sand.tif --name sand --edgelength 64 --stride 32 --target_dir sand_ti
 ```
 
 3) Run ```main.py``` to train the GAN model
