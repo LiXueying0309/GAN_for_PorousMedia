@@ -1,7 +1,7 @@
 # GAN_for_PorousMedia
 ### This code is partially borrowed from the package named PorousMediaGAN, which is developed by Lukas Mosser, Olivier Dubrule, and Martin J. Blunt from the department of Earth Science and Engineering, Imperial College London. (https://github.com/LukasMosser/PorousMediaGan)
 
-1. Preparation before training the generative adversarial neural network model
+#### 1. Preparation before training the generative adversarial neural network model
 
 Install jupyter notebook
 ```
@@ -26,7 +26,7 @@ git clone https://github.com/LiXueying0309/GAN_for_PorousMedia
 cd GAN_for_PorousMedia
 ```
 
-2. How to train the model (in the folder GAN/code)
+#### 2. How to train the model (in the folder GAN/code)
 
 1) Run ```generator.py``` to generate training images from the original data sample
 ```
@@ -43,7 +43,7 @@ python create_training_images.py --image berea.tif --name berea --edgelength 64 
 ```
 python main.py --dataset 3D --dataroot [path to training images] --imageSize 64 --batchSize 128 --ngf 64 --ndf 16 --nz 512 --niter 1000 --lr 1e-5 --workers 2 --ngpu 2 --cuda 
 ```
-3. Data analysis (in the folder GAN/analysis)
+#### 3. Data analysis (in the folder GAN/analysis)
 
 Please note that our data analysis include morphological calculation and permeability calculation.
 
@@ -53,5 +53,15 @@ The permeability calculation is based on the OpenFOAM software, version 8 (https
 
 We conducted all the batch calculation via a single script with Linux command line. The example of a batch calculation for Minkowski functionals by ImageJ could be like this:
 ```
-for i in `seq 1 100 %03g`;do imagej -b Macro_$i.ijm;done
+for i in `seq 0 100 %03g`;do imagej -b Macro_$i.ijm;done
+```
+
+#### 4. Citation
+```
+@article{pmgan2017,
+	title={Reconstruction of three-dimensional porous media using generative adversarial neural networks},
+	author={Mosser, Lukas and Dubrule, Olivier and Blunt, Martin J.},
+	journal={arXiv preprint arXiv:1704.03225},
+	year={2017}
+}
 ```
