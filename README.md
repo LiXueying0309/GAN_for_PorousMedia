@@ -56,6 +56,16 @@ We conducted all the batch calculation via a single script with Linux command li
 for i in `seq 0 100 %03g`;do imagej -b Macro_$i.ijm;done
 ```
 
+The example of a batch calculation for permeability by OpenFOAM could be like this:
+```
+cd PermCal/batchCal/sand_org/sand_1319/a/
+snappyHexMesh
+cd ..
+cd b
+simpleKFoam
+```
+Please note that the solver, simpleKFoam, is used to calculate the permeability of the example case in the folder sand_org/sand_1391/. The file batcha.sh and batchFolder.sh could be applied for batch calculation in the Linux system if you want to do the OpenFOAM simulation. Plus, this work is based on Gentoo Prefix, and the code we provided might not be directly applied on other Linux systems.
+
 ### 4. Citation
 ```
 @article{pmgan2017,
